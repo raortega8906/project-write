@@ -9,4 +9,16 @@ class Document extends Model
 {
     /** @use HasFactory<\Database\Factories\DocumentFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'content',
+        'type',
+        'project_id'
+    ];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }
