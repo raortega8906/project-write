@@ -20,6 +20,8 @@ Route::middleware('auth')->group(function () {
 
 // Rutas Proyectos
 Route::get('/proyectos', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/proyectos/crear', [ProjectController::class, 'create'])->name('projects.create');
+Route::post('/proyectos', [ProjectController::class, 'store'])->name('projects.store');
 
 // Rutas Documentos
 

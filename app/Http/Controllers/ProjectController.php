@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -23,7 +24,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -31,7 +32,18 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        // Convertir arrays a JSON
+        $validated['technologies'] = json_encode($validated['technologies']);
+        $validated['team'] = json_encode($validated['team']);
+        $validated['server_config'] = json_encode($validated['server_config']); 
+        
+        $validated['user_id'] = Auth::user()->id;
+
+        Project::create($validated);
+
+        return redirect()->route('projects.index')->with('success', 'Proyecto creado exitosamente');
     }
 
     /**
