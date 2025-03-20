@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,6 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Rutas Proyectos
+Route::get('/proyectos', [ProjectController::class, 'index'])->name('projects.index');
 
 // Rutas Documentos
 
