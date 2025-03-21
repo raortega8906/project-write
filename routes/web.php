@@ -23,6 +23,7 @@ Route::get('/proyectos', [ProjectController::class, 'index'])->name('projects.in
 Route::get('/proyectos/crear', [ProjectController::class, 'create'])->name('projects.create');
 Route::post('/proyectos', [ProjectController::class, 'store'])->name('projects.store');
 Route::get('/proyectos/{project}', [ProjectController::class, 'show'])->name('projects.show');
+Route::get('/proyectos/{project}/editar', [ProjectController::class, 'edit'])->name('projects.edit');
 
 // Rutas Documentos
 

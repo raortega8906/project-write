@@ -66,7 +66,7 @@
                                         <td class="px-3 py-2">{{ $project->user_id }}</td>  
                                         <td class="px-3 py-2 wrap-content">
                                             <a href="{{ route('projects.show', $project) }}" class="text-blue-700 hover:text-blue-900">Ver</a>
-                                            <a href="" class="text-green-700 hover:text-green-900">Editar</a>
+                                            <a href="{{ route('projects.edit', $project) }}" class="text-green-700 hover:text-green-900">Editar</a>
                                             <a href="#" class="text-red-700 hover:text-red-900">Eliminar</a>
                                         </td>
                                     </tr>
