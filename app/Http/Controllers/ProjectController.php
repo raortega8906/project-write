@@ -38,7 +38,7 @@ class ProjectController extends Controller
         $validated['technologies'] = json_encode($validated['technologies']);
         $validated['team'] = json_encode($validated['team']);
         $validated['server_config'] = json_encode($validated['server_config']); 
-        
+
         $validated['user_id'] = Auth::user()->id;
 
         Project::create($validated);
@@ -51,7 +51,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('projects.show', compact('project'));
     }
 
     /**
